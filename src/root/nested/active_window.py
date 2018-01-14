@@ -7,7 +7,7 @@ Created on Dec 26, 2017
 
 from tkinter import *
 import platform
-
+isRunning = False
 def openWindow():
     
     def centerWindow(self):
@@ -19,13 +19,13 @@ def openWindow():
         cX = (cSW / 2) - (cW / 2)
         cY = (cSH / 2) - (cH / 2)
         self.geometry("+%d+%d" % (cX, cY))
-    
+    '''
     def updateGIF(self):
         frame = framesGIF[self]
         self += 1
         canvas1.create_image(240, 240, image=frame)
         window.after(49, updateGIF, self)
-    
+    '''
     sysOS = platform.system()  #Get the OS of the computer
     
     'Initiate the window'
@@ -48,9 +48,9 @@ def openWindow():
     elif sysOS == "macOS":
         window.wm_attributes("-topmost", 1)
     'Body'
-    #close = Button(window, bd=0, highlightbackground="red", activebackground="#f44242", activeforeground="#f4f4f4",
-    #text="     X     ", fg="#6c6c6c", bg="#f4f4f4", command=lambda: rootWindow.destroy(), font="comicsans")
-    #close.pack(side=TOP)
+    close = Button(window, bd=0, highlightbackground="red", activebackground="#f44242", activeforeground="#f4f4f4",
+        text="     X     ", fg="#6c6c6c", bg="#f4f4f4", command=lambda: rootWindow.destroy(), font="comicsans")
+    close.pack(side=TOP)
     #THE CLOSE BUTTON IS FOR TESTING PURPOSES ONLY; DELETE AFTER DONE
     #The canvas
     canvas1WH = screenWidth / 4  #Change constant here if want to change size of canvas
@@ -58,9 +58,9 @@ def openWindow():
     canvas1.pack()
     centerWindow(window)  #Center the window before displaying things such as the oval
     #The circle in canvas
-    x = 50
-    y = canvas1WH - 50
-    oval1 = canvas1.create_oval(x, x, y, y, width=10)
+    x = 100
+    y = canvas1WH - 100
+    oval1 = canvas1.create_oval(x, x, y, y, width=20, outline="green")
     canvas1.itemconfig(oval1, fill="white")
     #Sets everything that is white to transparent
     if sysOS == "Windows":
@@ -73,7 +73,10 @@ def openWindow():
     print("width: %d" % canvas1WH)
     print(sysOS)
     print(x)
-    
+
     'Keep at end'
+    isRunning = True
+    print(isRunning)
     
     rootWindow.mainloop()
+
