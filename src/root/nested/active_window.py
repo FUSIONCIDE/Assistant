@@ -79,4 +79,3 @@ def openWindow():
     print(isRunning)
     
     rootWindow.mainloop()
-
