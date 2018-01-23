@@ -46,6 +46,13 @@ def the_func():
 
             "C:\ProgramData\Microsoft\Windows\Start Menu"  #search this directory for shortcuts but ONLY OR WINDOWS
         
+        #Music, Calculate, Search, News, Weather
+        elif "what" in inputCommand:
+            file1 = inputCommand.split(' ', 1)[1]
+            print(file1)
+        elif "play" in inputCommand:
+            print("play things")
+        
         elif inputCommand in ("exit", "quit", "stop", "bye", "ok", "ok bye", "ok bye john", "ok bye joe",
                         "bye joe", "bye john", "cya"): #Is there an easier way to do this?
         
