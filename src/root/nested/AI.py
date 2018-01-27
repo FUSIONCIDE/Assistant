@@ -10,12 +10,12 @@ import random as rand
 
 
 print(aw.isRunning)
-inputSentence = input("Type here:")
+inputSentence = (input("")).lower()
 
 
 def the_func():
         #aw.openWindow()
-        inputCommand = input("What would you like?:")
+        inputCommand = (input("What would you like?:")).lower()
         split1 = inputCommand.split(' ', 1)
         #Assign each word to its own variable? How to run command say: open stick fight
         #get first word (open), if it is open, delete it from string, then run whatever is left behind,
@@ -24,11 +24,12 @@ def the_func():
         
         #What if I only wanted to look for key words, what if user typed: hey can you open stick fight. How to get
         #program to run the command disregarding other words?
+        
         if "and" in inputCommand:
             #split it from one side of "and" and the other side (testing for multi-command)
-            input2 = inputCommand.split("and ")
-            print(input2[0])
-            print(input2[1])
+            input2 = inputCommand.split(" and ")
+            for k in input2:
+                print(k)
             
         if split1[0] == "open":
             file1 = inputCommand.split(' ', 1)[1] #delete open from string
@@ -41,7 +42,7 @@ def the_func():
                 print("Not yet available")
                 the_func()
             #search C:\ProgramData\Microsoft\Windows\Start Menu for a file to open (.lnk) but what is command given
-            # is: open a.txt (so how to quickly search all directories, starting with desktop, then downloads, etc.,
+            # is: open ab.bat (so how to quickly search all directories, starting with desktop, then downloads, etc.,
             # for each file?)
 
             "C:\ProgramData\Microsoft\Windows\Start Menu"  #search this directory for shortcuts but ONLY OR WINDOWS
