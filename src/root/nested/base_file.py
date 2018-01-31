@@ -11,11 +11,11 @@ import base_commands as bc
 #No idea why but if it works this code could be so much cleaner
 
 print(aw.isRunning)
-inputSentence = (input("")).lower()
+inputSentence = (input("Enter: ")).lower()
 
 
 def the_func():
-        #aw.openWindow()
+        aw.openWindow()
         inputCommand = (input("What would you like?:")).lower()
         split1 = inputCommand.split(' ', 1)
         
@@ -44,11 +44,10 @@ def the_func():
 
 #Start off the program, down here because I don't want print("Hi!") to print every time there is an invalid input
 if inputSentence in ("hey john", "john", "hey joe", "joe", "ok joe", "ok john"):
-    print("Hi!")
+    bc.hi()
     print('''\nCommands Available:
 OPEN (stick fight, speedrunners)
 exit, quit, stop, bye, ok, ok bye, ok bye joe, ok bye john, bye joe, bye john, cya
 thank you, thanks
 and\n''')
     the_func()
-

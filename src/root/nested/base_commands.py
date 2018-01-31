@@ -8,6 +8,23 @@ import random as rand
 import base_file as ai
 
 
+def remember_command(self):
+  split1 = self.split('remember ')
+  #create new var everytime asked to remember something, store the name and the thing (like a number)
+  
+  
+def hi():
+  int1 = rand.randint(0, 3)
+  if int1==0:
+    print("Hi!")
+  elif int1==1:
+    print("Hey! How can I help?")
+  elif int1==2:
+    print("Hi, how can I help?")
+  elif int1==3:
+    print("Hi, how can I assist you?")
+
+
 def open_command(self):
     file1 = self.split(' ', 1)[1]  #delete open from string
     #file1 = split1[1]
