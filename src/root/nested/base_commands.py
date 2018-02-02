@@ -7,7 +7,6 @@ import os
 import random as rand
 import base_file as ai
 
-
 def remember_command(self):
   split1 = self.split('remember ')
   #create new var everytime asked to remember something, store the name and the thing (like a number)
@@ -34,7 +33,7 @@ def open_command(self):
         os.startfile('"steam://rungameid/207140"')
     else:
         print("Not yet available")
-        ai.the_func()
+        ai.the_func() #i need to run the function back on the other file again
 
 
 def thank_command():
