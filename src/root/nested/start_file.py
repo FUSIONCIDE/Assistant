@@ -21,7 +21,7 @@ def the_func():
     #but what if there are more commands such as: open chrome AND go to google.com?
     #search fof and if found then split down middle and evaluate the command
     
-    #What if I only wanted to look for key words, what if user typed: hey can you open stick fight. How to get
+    #What if I only wanted to look for bye_keywords words, what if user typed: hey can you open stick fight. How to get
     #program to run the command disregarding other words?
     
     if "and" in inputCommand:

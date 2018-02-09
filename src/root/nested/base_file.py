@@ -13,44 +13,52 @@ import base_commands as bc
 #use if __name__ == "__main__" to trick python
 
 
+io=[5]
+
+
 def the_func():
-        #aw.openWindow()
-        inputCommand = (input("What would you like?:")).lower()
-        split1 = inputCommand.split(' ', 1)
+    #aw.openWindow()
+    inputCommand = (input("What would you like?:")).lower()
+    split1 = inputCommand.split(' ', 1)
+    
+    if "and" in inputCommand:
+        bc.and_command(inputCommand)  #If it is a command with two commands
+    
+    if split1[0] == "open":
+        bc.open_command(inputCommand)  #Command to open
+    
+    elif "what" in inputCommand:
+        bc.what_command(inputCommand)  #Command to search online
+    
+    elif "play" in inputCommand:
+        bc.play_command()  #Command to play something
         
-        if "and" in inputCommand:
-            bc.and_command(inputCommand)#If it is a command with two commands
+    elif inputCommand in ("exit", "quit", "stop", "bye", "ok", "ok bye", "ok bye john", "ok bye joe",
+                          "bye joe", "bye john", "cya"):  #Is there an easier way to do this?
+        bc.bye_command()  #Command to exit
+        io[0] = 0 #Either use a list or global variable
         
-        if split1[0] == "open":
-            bc.open_command(inputCommand)#Command to open
+    elif inputCommand in ("thank you", "thanks"):
+        bc.thank_command()  #Command to say thanks
+        io[0] = 0
         
-        elif "what" in inputCommand:
-            bc.what_command(inputCommand)#Command to search online
-       
-        elif "play" in inputCommand:
-            bc.play_command()#Command to play something
-        
-        elif inputCommand in ("exit", "quit", "stop", "bye", "ok", "ok bye", "ok bye john", "ok bye joe",
-                        "bye joe", "bye john", "cya"): #Is there an easier way to do this?
-            bc.bye_command()#Command to exit
-        
-        elif inputCommand in ("thank you", "thanks"):
-            bc.thank_command()#Command to say thanks
-            
-        else:
-            print("Invalid input! Please try again.\n")
-            the_func()
+    else:
+        print("I'm sorry, I didn't get that. Please try again.\n")
 
 
-if __name__ == "__main__": # Basicly only runs this part if the file open/being run by use is this file
-    #Start off the program, down here because I don't want print("Hi!") to print every time there is an invalid input
+if __name__ == "__main__":#Make sure that runs this file only
+    
     print(aw.isRunning)
     inputSentence = (input("Enter: ")).lower()
+
     if inputSentence in ("hey john", "john", "hey joe", "joe", "ok joe", "ok john"):
         bc.hi()
         print('''\nCommands Available:
-    OPEN (stick fight, speedrunners)
-    exit, quit, stop, bye, ok, ok bye, ok bye joe, ok bye john, bye joe, bye john, cya
-    thank you, thanks
-    and\n''')
-        the_func()
+OPEN (stick fight, speedrunners)
+exit, quit, stop, bye, ok, ok bye, ok bye joe, ok bye john, bye joe, bye john, cya
+thank you, thanks
+and\n''')
+
+        while io[0] != 0:
+            the_func()
+            #io[0]-=1 #like a counter, but i want timed cant do with input
