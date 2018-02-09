@@ -1,0 +1,3 @@
+This is the directory for everything the program can say for each category.
+For example, if you said bye, the program looks in 'bye_possibleSaying' for a word or phrase to say
+back to you.

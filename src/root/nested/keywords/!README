@@ -1,0 +1,3 @@
+This is the directory for all the possible things the user can say in each category.
+For example, you can say 'cya' and the program will look if that word is in the 'bye_keywords.txt' file
+and if it is, the program executes whatever it needs to do for saying bye (so say bye and quit program).
