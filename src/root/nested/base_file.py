@@ -6,6 +6,7 @@ Created on Jan 9, 2018
 
 import active_window as aw
 import base_commands as bc
+import base_functions as bf
 
 #So apparently there is an error that it cannot seem to be able to import the file as said above
 #No idea why but if it works this code could be so much cleaner
@@ -19,12 +20,13 @@ io=[5]
 def the_func():
     #aw.openWindow()
     inputCommand = (input("What would you like?:")).lower()
+    filteredSentence = bf.filter(inputCommand)
     split1 = inputCommand.split(' ', 1)
     
     if "and" in inputCommand:
         bc.and_command(inputCommand)  #If it is a command with two commands
     
-    if split1[0] == "open":
+    elif split1[0] == "open":
         bc.open_command(inputCommand)  #Command to open
     
     elif "what" in inputCommand:
@@ -42,13 +44,20 @@ def the_func():
         bc.thank_command()  #Command to say thanks
         io[0] = 0
         
+    elif inputCommand in ("as", "ah"):
+        print("k")
+    elif inputCommand in ("set a timer", "timer"):
+        bc.timer_command()
+        io[0]=0
+    elif inputCommand in ("start stopwatch", "start the stopwatch", "stopwatch"):
+        bc.stopwatch_command()
+        io[0]=0
     else:
         print("I'm sorry, I didn't get that. Please try again.\n")
 
 
 if __name__ == "__main__":#Make sure that runs this file only
     
-    print(aw.isRunning)
     inputSentence = (input("Enter: ")).lower()
 
     if inputSentence in ("hey john", "john", "hey joe", "joe", "ok joe", "ok john"):

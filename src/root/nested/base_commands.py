@@ -48,6 +48,23 @@ def play_command(self):
     bf.io[0] = 0#????
     
 
+def timer_command():
+    time = int(input("For how long? (seconds): "))
+    time *= 1000  #seonds?
+    while time != 0:
+        print(time)
+        time -= 1
+        if time == 0:
+            print("Timer over!")
+            
+def stopwatch_command(): #no worko
+    stopp = 0
+    while stopp == 0:
+        time=0
+        time = time + 1
+        print(time)
+        time += 1
+
 #FUNCITONING THINGS
 def bye_command():
     int1 = rand.randint(0, 1)

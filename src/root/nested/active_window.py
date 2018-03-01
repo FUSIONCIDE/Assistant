@@ -7,7 +7,8 @@ Created on Dec 26, 2017
 
 from tkinter import *
 import platform
-isRunning = False
+
+
 def openWindow():
     
     def centerWindow(self):
@@ -19,6 +20,7 @@ def openWindow():
         cX = (cSW / 2) - (cW / 2)
         cY = (cSH / 2) - (cH / 2)
         self.geometry("+%d+%d" % (cX, cY))
+
     '''
     def updateGIF(self):
         frame = framesGIF[self]
@@ -75,7 +77,6 @@ def openWindow():
     print(x)
 
     'Keep at end'
-    isRunning = True
-    print(isRunning)
+    
     
     rootWindow.mainloop()
